@@ -7,7 +7,7 @@ The full brief, including goals, sources and open questions, is in **CLAUDE.md**
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
+source .venv/bin/activate          
 pip install -r requirements.txt
 python -m pytest -q                # offline tests, should all pass
 ```
@@ -16,17 +16,17 @@ python -m pytest -q                # offline tests, should all pass
 
 ```bash
 # 1. Check the configured URLs work from your machine (shows HTTP status for each)
-python -m src.acquire check --year 2025
+python -m src.acquire check --year 2024
 
 # 2. See what would be downloaded
-python -m src.acquire run --year 2025 --dry-run
+python -m src.acquire run --year 2024 --dry-run
 
 # 3. Download
 python -m src.acquire run --year 2025
 python -m src.acquire run --year 2024          # CJM data and fallback year
 
 # 4. See what you have and what's missing
-python -m src.acquire status --year 2025
+python -m src.acquire status --year 2024
 ```
 
 Every file goes to `data/raw/<source>/<year or edition>/<dataset>/` and gets a row in
@@ -68,12 +68,3 @@ docs/coverage.csv     what each source can split (sex, age, IPV), and how it was
 docs/decisions.md     dated log of analytic decisions
 tests/                offline tests (a local server stands in for the government sites)
 ```
-
-## Step 2 – Filter (in progress)
-
-```bash
-python -m src.filter.cjm --year 2024     # women's centres: women 15+/18+, partner incidents, reporting
-```
-
-Output goes to `data/interim/<source>/`. Each script checks its column choices against the source's
-codebook before running, and stops with an error if something doesn't match.
