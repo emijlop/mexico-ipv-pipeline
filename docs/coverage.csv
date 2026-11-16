@@ -1,0 +1,8 @@
+source,dataset,years,sex_split,age_split,cut_15plus,cut_18plus,ipv_specific,notes,checked_on
+sesnsp,victimas_2015_2025,2015-2025,yes,"minors (0-17) / adults (18+)",no,yes,no,"Does not include violencia familiar; only crimes such as homicide, femicide, lesiones, secuestro",2026-11-16
+sesnsp,carpetas_estatal_2015_2025,2015-2025,no,no,no,no,no,"Counts cases not people; violencia familiar includes non-partner relatives",2026-11-16
+sesnsp,victimas_2026_on,2026-,yes,"0-12, 13-17, 18-29, 30-60, 60+",no,yes,partial,"New RNID methodology; includes violencia familiar; check if aggressor relationship recorded",2026-11-16
+sesnsp,informe_vcm (911 calls),2016-,no,no,no,no,yes,"'Violencia de pareja' call category; sex not recorded",2026-11-16
+dgis,lesiones_microdatos,2010-2025,yes,single years,yes,yes,yes,"Filter intencionalidad=violencia familiar & agresor=Cónyuge/Pareja/Novio",2026-11-16
+cjm,BD_CJM_2025 (ed2025),2023-2024 (both years in one file),women only,"0-4 ... 15-17, 18-19 ... 60+ (q5.1.9)",yes,yes,partial,"Partner relationship (q5.1.14: pareja, expareja, novio, novia) counts INCIDENTS of all ages and is not cross-tabulated with age; women 15+ attended for IPV must be estimated as women_15plus x partner share of incidents. Also q5.2.1 women who filed denuncia/querella.",2026-11-16
+endireh,microdatos_csv (ed2021),reference Nov 2020-Nov 2021,women,single years,yes,yes,yes,"2026 edition in fieldwork",2026-11-16

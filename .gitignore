@@ -1,0 +1,15 @@
+# raw and derived data stay local (microdata, large files); manifests are committed
+data/**
+!data/raw/
+!data/raw/manifest.csv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# local scratch / inspection output (may contain microdata rows)
+raw_overview.txt
+sesnsp_links.txt
+endireh_index.csv
+*.partial

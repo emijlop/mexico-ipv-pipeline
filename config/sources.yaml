@@ -1,0 +1,192 @@
+# Source registry for Step 1 (Acquire).
+#
+# Each dataset is resolved in this order:
+#   1. `urls`     - direct URLs tried in order ({year} / {edition} are filled in)
+#   2. `discover` - fetch `landing`, pick the first link whose text or href
+#                   matches `link_regex` and not `exclude_regex` (the link text is logged)
+#   3. manual     - if both fail (or `manual: true`), the script prints where
+#                   to get the file; save it and run `python -m src.acquire register ...`
+#
+# `years`: inclusive [first, last] range of reference years the dataset covers.
+# `edition_for_year`: for programs published as editions (CJM), maps the
+#                     reference year you ask for to the edition that contains it.
+#
+# URLs marked "VERIFY" follow the source's known naming pattern but could not
+# be tested from the build environment. Run `python -m src.acquire check`
+# on your machine to test them before the first real download.
+
+sources:
+
+  # ---------------------------------------------------------------- POLICE
+  sesnsp:
+    name: SESNSP - Incidencia delictiva del fuero común
+    landing: https://www.gob.mx/sesnsp/acciones-y-programas/datos-abiertos-de-incidencia-delictiva
+    datasets:
+
+      victimas_2015_2025:
+        description: >
+          Victims by state/month, sex and age group (minors / adults).
+          OLD methodology (CNSP/38/15). Does NOT include violencia familiar.
+        multi_year_file: true   # one file holds every year -> stored once
+        years: [2015, 2025]
+        methodology: CNSP/38/15
+        discover:
+          link_regex: '(?i)v[ií]ctimas'
+          exclude_regex: '(?i)(nueva|2026|RNID|municipal|diccionario)'
+        # SESNSP hosts files on SharePoint (since 2026); share links are converted to
+        # direct downloads automatically. Paste a link here if discovery picks the wrong file:
+        urls: []
+
+      carpetas_estatal_2015_2025:
+        description: >
+          Investigation files (carpetas) by state/month and crime subtype,
+          incl. violencia familiar. OLD methodology. No sex/age breakdown.
+        multi_year_file: true   # one file holds every year -> stored once
+        years: [2015, 2025]
+        methodology: CNSP/38/15
+        discover:
+          link_regex: '(?i)estatal'
+          exclude_regex: '(?i)(nueva|2026|RNID|v[ií]ctimas|diccionario|federal)'
+        urls: []
+
+      victimas_2026_on:
+        description: >
+          Victims under the NEW methodology (RNID, Jan 2026 ->). Sex and age
+          bands (0-12, 13-17, 18-29, 30-60, 60+) for ALL crimes, incl.
+          violencia familiar. Note: no 15+ cut is possible; 18+ is.
+        multi_year_file: true   # one file holds every year -> stored once
+        years: [2026, 2030]
+        methodology: RNID-2026
+        discover:
+          link_regex: '(?i)v[ií]ctimas.*(nueva|2026|RNID)|(nueva|2026|RNID).*v[ií]ctimas'
+          exclude_regex: '(?i)(municipal|diccionario)'
+        urls: []
+
+      carpetas_estatal_2026_on:
+        description: Carpetas by state under the NEW methodology.
+        multi_year_file: true   # one file holds every year -> stored once
+        years: [2026, 2030]
+        methodology: RNID-2026
+        discover:
+          link_regex: '(?i)estatal.*(nueva|2026|RNID)|(nueva|2026|RNID).*estatal'
+          exclude_regex: '(?i)(v[ií]ctimas|diccionario)'
+        urls: []
+
+      diccionario_datos:
+        description: Data dictionaries for the files above.
+        multi_year_file: true
+        years: [2015, 2030]
+        discover:
+          link_regex: '(?i)diccionario'
+        urls: []
+
+      informe_vcm_diciembre:
+        description: >
+          'Informe de violencia contra las mujeres' (PDF, December issue has the
+          annual totals incl. 911 'violencia de pareja' calls). Monthly PDFs have
+          unpredictable upload IDs, so this one is manual.
+        years: [2015, 2030]
+        manual: true
+        where: >
+          gob.mx/sesnsp -> 'Información sobre violencia contra las mujeres'.
+          Download the December {year} issue (Info-delict-violencia_contra_las_mujeres_Dic{yy}.pdf).
+
+  # ---------------------------------------------------------------- HEALTH
+  dgis:
+    name: Secretaría de Salud DGIS - Lesiones y causas de violencia (SINBA-SEUL-17)
+    landing: http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_lesiones_gobmx.html
+    datasets:
+
+      lesiones_microdatos:
+        description: >
+          Record-level injury/violence care data: patient sex and age,
+          intent (violencia familiar), aggressor relationship (Cónyuge/Pareja/Novio).
+        years: [2010, 2030]
+        urls:   # first pattern confirmed working for 2025 (16 Nov 2026)
+          - http://www.dgis.salud.gob.mx/descargas/datosabiertos/lesiones/Lesiones_{year}.zip
+          - http://www.dgis.salud.gob.mx/descargas/datosabiertos/Lesiones_{year}.zip
+        discover:
+          link_regex: '(?i)lesiones[_ ]?{year}.*\.(zip|csv)'
+
+      instructivo:
+        description: Coding manual for the injury form (catalogues for every variable).
+        years: [2023, 2030]
+        urls:   # 2023 and 2024 confirmed; no 2025 manual yet (404), so fall back to the 2024 one
+          - http://www.dgis.salud.gob.mx/descargas/lesiones/pdf/Instructivo_Lesiones_{year}.pdf
+          - http://www.dgis.salud.gob.mx/descargas/lesiones/pdf/Instructivo_Lesiones_2024.pdf
+
+  cnegsr:
+    name: CNEGSR - registry counts (via information request)
+    datasets:
+      solicitud_registros:
+        description: Counts requested from CNEGSR (by state, sex, age, aggressor).
+        years: [2015, 2030]
+        manual: true
+        where: Response to transparency request. Register the response file with its folio number in --notes.
+
+  # ------------------------------------------------------- WOMEN'S CENTRES
+  cjm:
+    name: INEGI - Centros de Justicia para las Mujeres (CJM)
+    # The 2025 edition (published 26 Mar 2026) reports attentions for 2023 and 2024.
+    # VERIFY older mappings against each edition's documentation.
+    edition_for_year: {2024: 2025, 2023: 2025, 2022: 2023, 2021: 2023}
+    datasets:
+
+      datos_abiertos:
+        description: >
+          Microdata 'Base de datos' (CSV) of the CJM edition. The 2025 edition covers two
+          reference periods: 1 Jan-31 Dec 2023 and 1 Jan-31 Dec 2024 (confirmed on the INEGI page).
+          The page builds its download buttons with JavaScript, so this is downloaded by hand
+          (Microdatos -> Descarga -> Base de datos -> CSV) and registered.
+        years: [2021, 2024]
+        landing: https://www.inegi.org.mx/programas/cjm/{edition}/
+        urls:   # VERIFY - standard INEGI datosabiertos pattern
+          - https://www.inegi.org.mx/contenidos/programas/cjm/{edition}/datosabiertos/cjm_{edition}_datos_abiertos_csv.zip
+          - https://www.inegi.org.mx/contenidos/programas/cjm/{edition}/datosabiertos/conjunto_de_datos_cjm_{edition}_csv.zip
+        discover:
+          link_regex: '(?i)(datosabiertos|tabulados).*\.(zip|xlsx)'
+
+      descriptor_archivos:
+        description: File descriptor (FD) for the CJM microdata - variable list and catalogues.
+        years: [2021, 2024]
+        manual: true
+        where: inegi.org.mx/programas/cjm/{edition}/ -> Microdatos -> Descarga -> 'Descripción de archivos (FD)' (PDF).
+
+      reporte_resultados:
+        description: Results report (methodology and national figures).
+        years: [2023, 2024]
+        urls:   # confirmed for the 2025 edition
+          - https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/cjm/cjm{edition}_RR.pdf
+
+      presentacion_ejecutiva:
+        description: Executive presentation (questionnaire structure, coverage).
+        years: [2023, 2024]
+        urls:   # confirmed for the 2025 edition
+          - https://www.inegi.org.mx/contenidos/programas/cjm/{edition}/doc/cjm{edition}_presentacion_ejecutiva.pdf
+
+  # ---------------------------------------------------------------- SURVEY
+  endireh:
+    name: INEGI - ENDIREH (survey; edition is fixed, independent of --year)
+    fixed_edition: 2021
+    datasets:
+
+      microdatos_csv:
+        description: Full microdata (all tables, CSV) incl. section on help-seeking and reporting.
+        years: [2000, 2030]
+        landing: https://www.inegi.org.mx/programas/endireh/{edition}/
+        urls:   # confirmed working (16 Nov 2026); unzips to conjunto_de_datos_endireh_2021_csv/
+          - https://www.inegi.org.mx/contenidos/programas/endireh/{edition}/datosabiertos/conjunto_de_datos_endireh_{edition}_csv.zip
+        discover:
+          link_regex: '(?i)endireh_?{edition}.*csv.*\.zip'
+
+      descriptor_archivos:
+        description: File descriptor (database structure).
+        years: [2000, 2030]
+        urls:   # confirmed
+          - https://www.inegi.org.mx/contenidos/programas/endireh/{edition}/doc/endireh{edition}_fd.pdf
+
+      cuestionario_b:
+        description: Questionnaire B (women 15+ in a relationship).
+        years: [2000, 2030]
+        urls:   # confirmed
+          - https://www.inegi.org.mx/contenidos/programas/endireh/{edition}/doc/endireh{edition}_cuestionario_b.pdf

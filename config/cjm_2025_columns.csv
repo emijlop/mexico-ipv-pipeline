@@ -1,0 +1,443 @@
+column,label
+P5_1_1_1_1,2023. Total
+P5_1_1_1_2,2024. Total
+P5_1_1_2_1,2023. Mujeres atendidas de primera vez
+P5_1_1_2_2,2024. Mujeres atendidas de primera vez
+P5_1_1_3_1,2023. Mujeres atendidas por seguimiento
+P5_1_1_3_2,2024. Mujeres atendidas por seguimiento
+P5_1_1_4_1,2023. No especificado
+P5_1_1_4_2,2024. No especificado
+P5_1_9_1_1,2023. Total
+P5_1_9_1_2,2023. Total. Primera vez
+P5_1_9_1_3,2023. Total. Seguimiento
+P5_1_9_1_4,2023. Total. No especificado
+P5_1_9_1_5,2024. Total
+P5_1_9_1_6,2024. Total. Primera vez
+P5_1_9_1_7,2024. Total. Seguimiento
+P5_1_9_1_8,2024. Total. No especificado
+P5_1_9_2_1,2023. 0-4 años. Total
+P5_1_9_2_2,2023. 0-4 años. Primera vez
+P5_1_9_2_3,2023. 0-4 años. Seguimiento
+P5_1_9_2_4,2023. 0-4 años. No especificado
+P5_1_9_2_5,2024. 0-4 años. Total
+P5_1_9_2_6,2024. 0-4 años. Primera vez
+P5_1_9_2_7,2024. 0-4 años. Seguimiento
+P5_1_9_2_8,2024. 0-4 años. No especificado
+P5_1_9_3_1,2023. 5-9 años. Total
+P5_1_9_3_2,2023. 5-9 años. Primera vez
+P5_1_9_3_3,2023. 5-9 años. Seguimiento
+P5_1_9_3_4,2023. 5-9 años. No especificado
+P5_1_9_3_5,2024. 5-9 años. Total
+P5_1_9_3_6,2024. 5-9 años. Primera vez
+P5_1_9_3_7,2024. 5-9 años. Seguimiento
+P5_1_9_3_8,2024. 5-9 años. No especificado
+P5_1_9_4_1,2023. 10-11 años. Total
+P5_1_9_4_2,2023. 10-11 años. Primera vez
+P5_1_9_4_3,2023. 10-11 años. Seguimiento
+P5_1_9_4_4,2023. 10-11 años. No especificado
+P5_1_9_4_5,2024. 10-11 años. Total
+P5_1_9_4_6,2024. 10-11 años. Primera vez
+P5_1_9_4_7,2024. 10-11 años. Seguimiento
+P5_1_9_4_8,2024. 10-11 años. No especificado
+P5_1_9_5_1,2023. 12-14 años. Total
+P5_1_9_5_2,2023. 12-14 años. Primera vez
+P5_1_9_5_3,2023. 12-14 años. Seguimiento
+P5_1_9_5_4,2023. 12-14 años. No especificado
+P5_1_9_5_5,2024. 12-14 años. Total
+P5_1_9_5_6,2024. 12-14 años. Primera vez
+P5_1_9_5_7,2024. 12-14 años. Seguimiento
+P5_1_9_5_8,2024. 12-14 años. No especificado
+P5_1_9_6_1,2023. 15-17 años. Total
+P5_1_9_6_2,2023. 15-17 años. Primera vez
+P5_1_9_6_3,2023. 15-17 años.
+P5_1_9_6_4,2023. 15-17 años. No especificado
+P5_1_9_6_5,2024. 15-17 años. Total
+P5_1_9_6_6,2024. 15-17 años. Primera vez
+P5_1_9_6_7,2024. 15-17 años. Seguimiento
+P5_1_9_6_8,2024. 15-17 años. No especificado
+P5_1_9_7_1,2023. 18-19 años. Total
+P5_1_9_7_2,2023. 18-19 años. Primera vez
+P5_1_9_7_3,2023. 18-19 años. Seguimiento
+P5_1_9_7_4,2023. 18-19 años. No especificado
+P5_1_9_7_5,2024. 18-19 años. Total
+P5_1_9_7_6,2024. 18-19 años. Primera vez
+P5_1_9_7_7,2024. 18-19 años. Seguimiento
+P5_1_9_7_8,2024. 18-19 años. No especificado
+P5_1_9_8_1,2023. 20-24 años. Total
+P5_1_9_8_2,2023. 20-24 años. Primera vez
+P5_1_9_8_3,2023. 20-24 años. Seguimiento
+P5_1_9_8_4,2023. 20-24 años. No especificado
+P5_1_9_8_5,2024. 20-24 años. Total
+P5_1_9_8_6,2024. 20-24 años. Primera vez
+P5_1_9_8_7,2024. 20-24 años. Seguimiento
+P5_1_9_8_8,2024. 20-24 años. No especificado
+P5_1_9_9_1,2023. 25-29 años. Total
+P5_1_9_9_2,2023. 25-29 años. Primera vez
+P5_1_9_9_3,2023. 25-29 años. Seguimiento
+P5_1_9_9_4,2023. 25-29 años. No especificado
+P5_1_9_9_5,2024. 25-29 años. Total
+P5_1_9_9_6,2024. 25-29 años. Primera vez
+P5_1_9_9_7,2024. 25-29 años. Seguimiento
+P5_1_9_9_8,2024. 25-29 años. No especificado
+P5_1_9_10_1,2023. 30-34 años. Total
+P5_1_9_10_2,2023. 30-34 años. Primera vez
+P5_1_9_10_3,2023. 30-34 años. Seguimiento
+P5_1_9_10_4,2023. 30-34 años. No especificado
+P5_1_9_10_5,2024. 30-34 años. Total
+P5_1_9_10_6,2024. 30-34 años. Primera vez
+P5_1_9_10_7,2024. 30-34 años. Seguimiento
+P5_1_9_10_8,2024. 30-34 años. No especificado
+P5_1_9_11_1,2023. 35-39 años. Total
+P5_1_9_11_2,2023. 35-39 años. Primera vez
+P5_1_9_11_3,2023. 35-39 años. Seguimiento
+P5_1_9_11_4,2023. 35-39 años. No especificado
+P5_1_9_11_5,2024. 35-39 años. Total
+P5_1_9_11_6,2024. 35-39 años. Primera vez
+P5_1_9_11_7,2024. 35-39 años. Seguimiento
+P5_1_9_11_8,2024. 35-39 años. No especificado
+P5_1_9_12_1,2023. 40-44 años. Total
+P5_1_9_12_2,2023. 40-44 años. Primera vez
+P5_1_9_12_3,2023. 40-44 años. Seguimiento
+P5_1_9_12_4,2023. 40-44 años. No especificado
+P5_1_9_12_5,2024. 40-44 años. Total
+P5_1_9_12_6,2024. 40-44 años. Primera vez
+P5_1_9_12_7,2024. 40-44 años. Seguimiento
+P5_1_9_12_8,2024. 40-44 años. No especificado
+P5_1_9_13_1,2023. 45-49 años. Total
+P5_1_9_13_2,2023. 45-49 años. Primera vez
+P5_1_9_13_3,2023. 45-49 años. Seguimiento
+P5_1_9_13_4,2023. 45-49 años. No especificado
+P5_1_9_13_5,2024. 45-49 años. Total
+P5_1_9_13_6,2024. 45-49 años. Primera vez
+P5_1_9_13_7,2024. 45-49 años. Seguimiento
+P5_1_9_13_8,2024. 45-49 años. No especificado
+P5_1_9_14_1,2023. 50-54 años. Total
+P5_1_9_14_2,2023. 50-54 años. Primera vez
+P5_1_9_14_3,2023. 50-54 años. Seguimiento
+P5_1_9_14_4,2023. 50-54 años. No especificado
+P5_1_9_14_5,2024. 50-54 años. Total
+P5_1_9_14_6,2024. 50-54 años. Primera vez
+P5_1_9_14_7,2024. 50-54 años. Seguimiento
+P5_1_9_14_8,2024. 50-54 años. No especificado
+P5_1_9_15_1,2023. 55-59 años. Total
+P5_1_9_15_2,2023. 55-59 años. Primera vez
+P5_1_9_15_3,2023. 55-59 años. Seguimiento
+P5_1_9_15_4,2023. 55-59 años. No especificado
+P5_1_9_15_5,2024. 55-59 años. Total
+P5_1_9_15_6,2024. 55-59 años. Primera vez
+P5_1_9_15_7,2024. 55-59 años. Seguimiento
+P5_1_9_15_8,2024. 55-59 años. No especificado
+P5_1_9_16_1,2023. 60 años y más. Total
+P5_1_9_16_2,2023. 60 años y más. Primera vez
+P5_1_9_16_3,2023. 60 años y más. Seguimiento
+P5_1_9_16_4,2023. 60 años y más. No especificado
+P5_1_9_16_5,2024. 60 años y más. Total
+P5_1_9_16_6,2024. 60 años y más. Primera vez
+P5_1_9_16_7,2024. 60 años y más. Seguimiento
+P5_1_9_16_8,2024. 60 años y más. No especificado
+P5_1_9_17_1,2023. No especificado. Total
+P5_1_9_17_2,2023. No especificado. Primera vez
+P5_1_9_17_3,2023. No especificado. Seguimiento
+P5_1_9_17_4,2023. No especificado. No especificado
+P5_1_9_17_5,2024. No especificado. Total
+P5_1_9_17_6,2024. No especificado. Primera vez
+P5_1_9_17_7,2024. No especificado. Seguimiento
+P5_1_9_17_8,2024. No especificado. No especificado
+P5_1_13_1_1,2023. Total
+P5_1_13_1_2,2023. Total. Primera vez
+P5_1_13_1_3,2023. Total. Seguimiento
+P5_1_13_1_4,2023. Total. No especificado
+P5_1_13_1_5,2024. Total
+P5_1_13_1_6,2024. Total. Primera vez
+P5_1_13_1_7,2024. Total. Seguimiento
+P5_1_13_1_8,2024. Total. No especificado
+P5_1_13_2_1,2023. Violencia Psicológica. Total
+P5_1_13_2_2,2023. Violencia Psicológica. Primera vez
+P5_1_13_2_3,2023. Violencia Psicológica. Seguimiento
+P5_1_13_2_4,2023. Violencia Psicológica. No especificado
+P5_1_13_2_5,2024. Violencia Psicológica. Total
+P5_1_13_2_6,2024. Violencia Psicológica. Primera vez
+P5_1_13_2_7,2024. Violencia Psicológica. Seguimiento
+P5_1_13_2_8,2024. Violencia Psicológica. No especificado
+P5_1_13_3_1,2023. Violencia Física. Total
+P5_1_13_3_2,2023. Violencia Física. Primera vez
+P5_1_13_3_3,2023. Violencia Física. Seguimiento
+P5_1_13_3_4,2023. Violencia Física. No especificado
+P5_1_13_3_5,2024. Violencia Física. Total
+P5_1_13_3_6,2024. Violencia Física. Primera vez
+P5_1_13_3_7,2024. Violencia Física. Seguimiento
+P5_1_13_3_8,2024. Violencia Física. No especificado
+P5_1_13_4_1,2023. Violencia Sexual. Total
+P5_1_13_4_2,2023. Violencia Sexual. Primera vez
+P5_1_13_4_3,2023. Violencia Sexual. Seguimiento
+P5_1_13_4_4,2023. Violencia Sexual. No especificado
+P5_1_13_4_5,2024. Violencia Sexual. Total
+P5_1_13_4_6,2024. Violencia Sexual. Primera vez
+P5_1_13_4_7,2024. Violencia Sexual. Seguimiento
+P5_1_13_4_8,2024. Violencia Sexual. No especificado
+P5_1_13_5_1,2023. Violencia Económica. Total
+P5_1_13_5_2,2023. Violencia Económica. Primera vez
+P5_1_13_5_3,2023. Violencia Económica. Seguimiento
+P5_1_13_5_4,2023. Violencia Económica. No especificado
+P5_1_13_5_5,2024. Violencia Económica. Total
+P5_1_13_5_6,2024. Violencia Económica. Primera vez
+P5_1_13_5_7,2024. Violencia Económica. Seguimiento
+P5_1_13_5_8,2024. Violencia Económica. No especificado
+P5_1_13_6_1,2023. Violencia Patrimonial. Total
+P5_1_13_6_2,2023. Violencia Patrimonial. Primera vez
+P5_1_13_6_3,2023. Violencia Patrimonial. Seguimiento
+P5_1_13_6_4,2023. Violencia Patrimonial. No especificado
+P5_1_13_6_5,2024. Violencia Patrimonial. Total
+P5_1_13_6_6,2024. Violencia Patrimonial. Primera vez
+P5_1_13_6_7,2024. Violencia Patrimonial. Seguimiento
+P5_1_13_6_8,2024. Violencia Patrimonial. No especificado
+P5_1_13_7_1,2023. Violencia a través de interpósita persona. Total
+P5_1_13_7_2,2023. Violencia a través de interpósita persona. Primera vez
+P5_1_13_7_3,2023. Violencia a través de interpósita persona. Seguimiento
+P5_1_13_7_4,2023. Violencia a través de interpósita persona. No
+P5_1_13_7_5,2024. Violencia a través de interpósita persona. Total
+P5_1_13_7_6,2024. Violencia a través de interpósita persona. Primera vez
+P5_1_13_7_7,2024. Violencia a través de interpósita persona. Seguimiento
+P5_1_13_7_8,2024. Violencia a través de interpósita persona. No especificado
+P5_1_13_8_1,2023. Otra(s). Total
+P5_1_13_8_2,2023. Otra(s). Primera vez
+P5_1_13_8_3,2023. Otra(s). Seguimiento
+P5_1_13_8_4,2023. Otra(s). No especificado
+P5_1_13_8_5,2024. Otra(s). Total
+P5_1_13_8_6,2024. Otra(s). Primera vez
+P5_1_13_8_7,2024. Otra(s). Seguimiento
+P5_1_13_8_8,2024. Otra(s). No especificado
+P5_1_13_9_1,2023. No especificado. Total
+P5_1_13_9_2,2023. No especificado. Primera vez
+P5_1_13_9_3,2023. No especificado. Seguimiento
+P5_1_13_9_4,2023. No especificado. No especificado
+P5_1_13_9_5,2024. No especificado. Total
+P5_1_13_9_6,2024. No especificado. Primera vez
+P5_1_13_9_7,2024. No especificado. Seguimiento
+P5_1_13_9_8,2024. No especificado. No especificado
+P5_1_14_1_1,2023. Total
+P5_1_14_1_2,2023. Total. Primera vez
+P5_1_14_1_3,2023. Total. Seguimiento
+P5_1_14_1_4,2023. Total. No especificado
+P5_1_14_1_5,2024. Total
+P5_1_14_1_6,2024. Total. Primera vez
+P5_1_14_1_7,2024. Total. Seguimiento
+P5_1_14_1_8,2024. Total. No especificado
+P5_1_14_2_1,"2023. Pareja (esposo(a), cónyuge, concubino(a)). Total"
+P5_1_14_2_2,"2023. Pareja (esposo(a), cónyuge, concubino(a)). Primera vez"
+P5_1_14_2_3,"2023. Pareja (esposo(a), cónyuge, concubino(a)). Seguimiento"
+P5_1_14_2_4,"2023. Pareja (esposo(a), cónyuge, concubino(a)). No especificado"
+P5_1_14_2_5,"2024. Pareja (esposo(a), cónyuge, concubino(a)). Total"
+P5_1_14_2_6,"2024. Pareja (esposo(a), cónyuge, concubino(a)). Primera vez"
+P5_1_14_2_7,"2024. Pareja (esposo(a), cónyuge, concubino(a)). Seguimiento"
+P5_1_14_2_8,"2024. Pareja (esposo(a), cónyuge, concubino(a)). No especificado"
+P5_1_14_3_1,2023. Expareja. Total
+P5_1_14_3_2,2023. Expareja. Primera vez
+P5_1_14_3_3,2023. Expareja. Seguimiento
+P5_1_14_3_4,2023. Expareja. No especificado
+P5_1_14_3_5,2024. Expareja. Total
+P5_1_14_3_6,2024. Expareja. Primera vez
+P5_1_14_3_7,2024. Expareja. Seguimiento
+P5_1_14_3_8,2024. Expareja. No especificado
+P5_1_14_4_1,2023. Novio. Total
+P5_1_14_4_2,2023. Novio. Primera vez
+P5_1_14_4_3,2023. Novio. Seguimiento
+P5_1_14_4_4,2023. Novio. No especificado
+P5_1_14_4_5,2024. Novio. Total
+P5_1_14_4_6,2024. Novio. Primera vez
+P5_1_14_4_7,2024. Novio. Seguimiento
+P5_1_14_4_8,2024. Novio. No especificado
+P5_1_14_5_1,2023. Novia. Total
+P5_1_14_5_2,2023. Novia. Primera vez
+P5_1_14_5_3,2023. Novia. Seguimiento
+P5_1_14_5_4,2023. Novia. No especificado
+P5_1_14_5_5,2024. Novia. Total
+P5_1_14_5_6,2024. Novia. Primera vez
+P5_1_14_5_7,2024. Novia. Seguimiento
+P5_1_14_5_8,2024. Novia. No especificado
+P5_1_14_6_1,2023. Padre. Total
+P5_1_14_6_2,2023. Padre. Primera vez
+P5_1_14_6_3,2023. Padre. Seguimiento
+P5_1_14_6_4,2023. Padre. No especificado
+P5_1_14_6_5,2024. Padre. Total
+P5_1_14_6_6,2024. Padre. Primera vez
+P5_1_14_6_7,2024. Padre. Seguimiento
+P5_1_14_6_8,2024. Padre. No especificado
+P5_1_14_7_1,2023. Madre. Total
+P5_1_14_7_2,2023. Madre. Primera vez
+P5_1_14_7_3,2023. Madre. Seguimiento
+P5_1_14_7_4,2023. Madre. No especificado
+P5_1_14_7_5,2024. Madre. Total
+P5_1_14_7_6,2024. Madre. Primera vez
+P5_1_14_7_7,2024. Madre. Seguimiento
+P5_1_14_7_8,2024. Madre. No especificado
+P5_1_14_8_1,2023. Abuelo. Total
+P5_1_14_8_2,2023. Abuelo. Primera vez
+P5_1_14_8_3,2023. Abuelo. Seguimiento
+P5_1_14_8_4,2023. Abuelo. No especificado
+P5_1_14_8_5,2024. Abuelo. Total
+P5_1_14_8_6,2024. Abuelo. Primera vez
+P5_1_14_8_7,2024. Abuelo. Seguimiento
+P5_1_14_8_8,2024. Abuelo. No especificado
+P5_1_14_9_1,2023. Abuela. Total
+P5_1_14_9_2,2023. Abuela. Primera vez
+P5_1_14_9_3,2023. Abuela. Seguimiento
+P5_1_14_9_4,2023. Abuela. No especificado
+P5_1_14_9_5,2024. Abuela. Total
+P5_1_14_9_6,2024. Abuela. Primera vez
+P5_1_14_9_7,2024. Abuela. Seguimiento
+P5_1_14_9_8,2024. Abuela. No especificado
+P5_1_14_10_1,2023. Pariente distinto a la pareja. Total
+P5_1_14_10_2,2023. Pariente distinto a la pareja. Primera vez
+P5_1_14_10_3,2023. Pariente distinto a la pareja. Seguimiento
+P5_1_14_10_4,2023. Pariente distinto a la pareja. No especificado
+P5_1_14_10_5,2024. Pariente distinto a la pareja. Total
+P5_1_14_10_6,2024. Pariente distinto a la pareja. Primera vez
+P5_1_14_10_7,2024. Pariente distinto a la pareja. Seguimiento
+P5_1_14_10_8,2024. Pariente distinto a la pareja. No especificado
+P5_1_14_11_1,2023. Amigo. Total
+P5_1_14_11_2,2023. Amigo. Primera vez
+P5_1_14_11_3,2023. Amigo. Seguimiento
+P5_1_14_11_4,2023. Amigo. No especificado
+P5_1_14_11_5,2024. Amigo. Total
+P5_1_14_11_6,2024. Amigo. Primera vez
+P5_1_14_11_7,2024. Amigo. Seguimiento
+P5_1_14_11_8,2024. Amigo. No especificado
+P5_1_14_12_1,2023. Amiga. Total
+P5_1_14_12_2,2023. Amiga. Primera vez
+P5_1_14_12_3,2023. Amiga. Seguimiento
+P5_1_14_12_4,2023. Amiga. No especificado
+P5_1_14_12_5,2024. Amiga. Total
+P5_1_14_12_6,2024. Amiga. Primera vez
+P5_1_14_12_7,2024. Amiga. Seguimiento
+P5_1_14_12_8,2024. Amiga. No especificado
+P5_1_14_13_1,2023. Vecino/vecina. Total
+P5_1_14_13_2,2023. Vecino/vecina. Primera vez
+P5_1_14_13_3,2023. Vecino/vecina. Seguimiento
+P5_1_14_13_4,2023. Vecino/vecina. No especificado
+P5_1_14_13_5,2024. Vecino/vecina. Total
+P5_1_14_13_6,2024. Vecino/vecina. Primera vez
+P5_1_14_13_7,2024. Vecino/vecina. Seguimiento
+P5_1_14_13_8,2024. Vecino/vecina. No especificado
+P5_1_14_14_1,2023. Conocido/conocida. Total
+P5_1_14_14_2,2023. Conocido/conocida. Primera vez
+P5_1_14_14_3,2023. Conocido/conocida. Seguimiento
+P5_1_14_14_4,2023. Conocido/conocida. No especificado
+P5_1_14_14_5,2024. Conocido/conocida. Total
+P5_1_14_14_6,2024. Conocido/conocida. Primera vez
+P5_1_14_14_7,2024. Conocido/conocida. Seguimiento
+P5_1_14_14_8,2024. Conocido/conocida. No especificado
+P5_1_14_15_1,2023. Desconocido/Desconocida. Total
+P5_1_14_15_2,2023. Desconocido/Desconocida. Primera vez
+P5_1_14_15_3,2023. Desconocido/Desconocida. Seguimiento
+P5_1_14_15_4,2023. Desconocido/Desconocida. No
+P5_1_14_15_5,2024. Desconocido/Desconocida. Total
+P5_1_14_15_6,2024. Desconocido/Desconocida. Primera vez
+P5_1_14_15_7,2024. Desconocido/Desconocida. Seguimiento
+P5_1_14_15_8,2024. Desconocido/Desconocida. No especificado
+P5_1_14_16_1,2023. Servidora pública. Total
+P5_1_14_16_2,2023. Servidora pública. Primera vez
+P5_1_14_16_3,2023. Servidora pública. Seguimiento
+P5_1_14_16_4,2023. Servidora pública. No especificado
+P5_1_14_16_5,2024. Servidora pública. Total
+P5_1_14_16_6,2024. Servidora pública. Primera vez
+P5_1_14_16_7,2024. Servidora pública. Seguimiento
+P5_1_14_16_8,2024. Servidora pública. No especificado
+P5_1_14_17_1,2023. Servidor público. Total
+P5_1_14_17_2,2023. Servidor público. Primera vez
+P5_1_14_17_3,2023. Servidor público. Seguimiento
+P5_1_14_17_4,2023. Servidor público. No especificado
+P5_1_14_17_5,2024. Servidor público. Total
+P5_1_14_17_6,2024. Servidor público. Primera vez
+P5_1_14_17_7,2024. Servidor público. Seguimiento
+P5_1_14_17_8,2024. Servidor público. No especificado
+P5_1_14_18_1,2023. Jefe. Total
+P5_1_14_18_2,2023. Jefe. Primera vez
+P5_1_14_18_3,2023. Jefe. Seguimiento
+P5_1_14_18_4,2023. Jefe. No especificado
+P5_1_14_18_5,2024. Jefe. Total
+P5_1_14_18_6,2024. Jefe. Primera vez
+P5_1_14_18_7,2024. Jefe. Seguimiento
+P5_1_14_18_8,2024. Jefe. No especificado
+P5_1_14_19_1,2023. Jefa. Total
+P5_1_14_19_2,2023. Jefa. Primera vez
+P5_1_14_19_3,2023. Jefa. Seguimiento
+P5_1_14_19_4,2023. Jefa. No especificado
+P5_1_14_19_5,2024. Jefa. Total
+P5_1_14_19_6,2024. Jefa. Primera vez
+P5_1_14_19_7,2024. Jefa. Seguimiento
+P5_1_14_19_8,2024. Jefa. No especificado
+P5_1_14_20_1,2023. Compañera del trabajo. Total
+P5_1_14_20_2,2023. Compañera del trabajo. Primera vez
+P5_1_14_20_3,2023. Compañera del trabajo. Seguimiento
+P5_1_14_20_4,2023. Compañera del trabajo. No especificado
+P5_1_14_20_5,2024. Compañera del trabajo. Total
+P5_1_14_20_6,2024. Compañera del trabajo. Primera vez
+P5_1_14_20_7,2024. Compañera del trabajo. Seguimiento
+P5_1_14_20_8,2024. Compañera del trabajo. No especificado
+P5_1_14_21_1,2023. Compañero del trabajo. Total
+P5_1_14_21_2,2023. Compañero del trabajo. Primera vez
+P5_1_14_21_3,2023. Compañero del trabajo. Seguimiento
+P5_1_14_21_4,2023. Compañero del trabajo. No especificado
+P5_1_14_21_5,2024. Compañero del trabajo. Total
+P5_1_14_21_6,2024. Compañero del trabajo. Primera vez
+P5_1_14_21_7,2024. Compañero del trabajo. Seguimiento
+P5_1_14_21_8,2024. Compañero del trabajo. No especificado
+P5_1_14_22_1,2023. Maestro/Autoridad escolar hombre. Total
+P5_1_14_22_2,2023. Maestro/Autoridad escolar hombre. Primera vez
+P5_1_14_22_3,2023. Maestro/Autoridad escolar hombre. Seguimiento
+P5_1_14_22_4,2023. Maestro/Autoridad escolar hombre. No especificado
+P5_1_14_22_5,2024. Maestro/Autoridad escolar hombre. Total
+P5_1_14_22_6,2024. Maestro/Autoridad escolar hombre. Primera vez
+P5_1_14_22_7,escolar hombre. Seguimiento
+P5_1_14_22_8,2024. Maestro/Autoridad escolar hombre. No especificado
+P5_1_14_23_1,2023. Maestra/Autoridad escolar mujer. Total
+P5_1_14_23_2,2023. Maestra/Autoridad escolar mujer. Primera vez
+P5_1_14_23_3,2023. Maestra/Autoridad escolar mujer. Seguimiento
+P5_1_14_23_4,2023. Maestra/Autoridad escolar mujer. No especificado
+P5_1_14_23_5,2024. Maestra/Autoridad escolar mujer. Total
+P5_1_14_23_6,2024. Maestra/Autoridad escolar mujer. Primera vez
+P5_1_14_23_7,2024. Maestra/Autoridad escolar mujer. Seguimiento
+P5_1_14_23_8,2024. Maestra/Autoridad escolar mujer. No especificado
+P5_1_14_24_1,2023. Compañero de la escuela. Total
+P5_1_14_24_2,2023. Compañero de la escuela. Primera vez
+P5_1_14_24_3,2023. Compañero de la escuela. Seguimiento
+P5_1_14_24_4,2023. Compañero de la escuela. No especificado
+P5_1_14_24_5,2024. Compañero de la escuela. Total
+P5_1_14_24_6,2024. Compañero de la escuela. Primera vez
+P5_1_14_24_7,2024. Compañero de la escuela. Seguimiento
+P5_1_14_24_8,2024. Compañero de la escuela. No especificado
+P5_1_14_25_1,2023. Compañera de la escuela. Total
+P5_1_14_25_2,2023. Compañera de la escuela. Primera vez
+P5_1_14_25_3,2023. Compañera de la escuela. Seguimiento
+P5_1_14_25_4,2023. Compañera de la escuela. No especificado
+P5_1_14_25_5,2024. Compañera de la escuela. Total
+P5_1_14_25_6,2024. Compañera de la escuela. Primera vez
+P5_1_14_25_7,2024. Compañera de la escuela. Seguimiento
+P5_1_14_25_8,escuela. No especificado
+P5_1_14_26_1,2023. Otro(s). Total
+P5_1_14_26_2,2023. Otro(s). Primera vez
+P5_1_14_26_3,2023. Otro(s). Seguimiento
+P5_1_14_26_4,2023. Otro(s). No especificado
+P5_1_14_26_5,2024. Otro(s). Total
+P5_1_14_26_6,2024. Otro(s). Primera vez
+P5_1_14_26_7,2024. Otro(s). Seguimiento
+P5_1_14_26_8,2024. Otro(s). No especificado
+P5_1_14_27_1,2023. No especificado. Total
+P5_1_14_27_2,2023. No especificado. Primera vez
+P5_1_14_27_3,2023. No especificado. Seguimiento
+P5_1_14_27_4,2023. No especificado. No especificado
+P5_1_14_27_5,2024. No especificado. Total
+P5_1_14_27_6,2024. No especificado. Primera vez
+P5_1_14_27_7,2024. No especificado. Seguimiento
+P5_1_14_27_8,2024. No especificado. No especificado
+P5_2_1_1_1,2023. Total
+P5_2_1_1_2,2024. Total
+P5_2_1_2_1,2023. Presentó denuncia
+P5_2_1_2_2,2024. Presentó denuncia
+P5_2_1_3_1,2023. Presentó querella
+P5_2_1_3_2,2024. Presentó querella
+P5_2_1_4_1,2023. No presentó denuncia y/o querella
+P5_2_1_4_2,2024. No presentó denuncia y/o querella
+P5_2_1_5_1,2023. No especificado
+P5_2_1_5_2,2024. No especificado
