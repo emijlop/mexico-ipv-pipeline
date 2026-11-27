@@ -2,6 +2,20 @@
 
 Newest first. One entry per analytic decision: what, why, alternatives, who.
 
+## 2026-11-27 — Tabla armonizada (paso 4): prototipo Ciudad de México
+- **Construido:** `src/harmonise.py` → `data/processed/tabla_armonizada_<años>[_<estado>].csv`. Prototipo con CDMX (`--state 09`, 2024 y 2025); el mismo comando sin `--state` produce los 32 estados.
+- **Decisiones (confirmadas por Elena Mijares):**
+  1. Formato largo: una fila = un conteo de una fuente, para un estado, año y grupo de edad. Cada fila lleva su unidad (carpetas, víctimas, mujeres atendidas, incidentes, atenciones, mujeres entrevistadas, mujeres estimadas), porque las fuentes cuentan cosas distintas.
+  2. Grupos de edad: 15+, 18+, "todas" y "edad no registrada". No hay grupos quinquenales (la policía solo separa menores/adultas). La edad no registrada no se reparte entre los demás grupos.
+  3. Año: cada fuente conserva su año; la ENDIREH queda como 2021.
+  4. Estado: donde la institución registró el caso (fiscalía, CJM, unidad de salud por CLUES); en la encuesta, el estado de residencia.
+  5. Sin conversiones ni estimaciones: carpetas siguen siendo carpetas (paso 3 pendiente); en CJM, mujeres por edad e incidentes de pareja van en filas separadas.
+  6. Encuesta: dos filas por indicador (mujeres entrevistadas y estimación con factores de expansión de INEGI); se marca `precision_baja` con menos de 30 entrevistadas o CV > 30%.
+  7. Vacío = no reportado (nunca se rellena con 0).
+  8. Solo los indicadores más cercanos a violencia de pareja; abuso sexual, acoso y lesiones (carpetas) quedan en los archivos del paso 2.
+- **Hallazgos CDMX 2024:** en CJM, 29,381 de 49,842 mujeres sin edad y 36,577 de 49,842 incidentes sin relación con el agresor; CDMX reporta 0 carpetas de "violencia de género distinta a la familiar" en 2024 y 2025 (probablemente no usa la categoría); apoyo pedido a CJM (12 entrevistadas) y salud (6) no es utilizable a nivel estatal.
+- **Siguiente:** revisar con la profesora/el profesor y correr para los 32 estados.
+
 ## 2026-11-27 — Step 2 filters for SESNSP, DGIS and ENDIREH
 - **Built:** `src/filter/sesnsp.py`, `dgis.py`, `endireh.py`, plus `all.py` to run every source for one year. All inclusion rules are in `docs/ipv_crosswalk.csv`; DGIS codes in `config/dgis_codes.yaml` are now verified against the 2024 manual.
 - **SESNSP:** keeps *violencia familiar* carpetas as the core police proxy (all ages and sexes; no split exists before 2026), with related crimes (gender violence other than family violence, femicide, rape, sexual abuse, harassment, intentional injuries) next to it. Women 18+ victims only for femicide, intentional homicide and intentional injuries. Crimes → victims is left for step 3.

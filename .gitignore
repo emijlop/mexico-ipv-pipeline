@@ -2,6 +2,9 @@
 data/**
 !data/raw/
 !data/raw/manifest.csv
+# harmonised tables are aggregated counts (no microdata), so they are shared
+!data/processed/
+!data/processed/*.csv
 .venv/
 __pycache__/
 *.pyc

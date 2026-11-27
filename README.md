@@ -26,7 +26,7 @@ separan menores de adultas). El **año principal es 2024**, el último que cubre
 | 1. Recopilar | Descargar los archivos originales y registrar de dónde y cuándo se obtuvieron | Hecho (faltan algunas fuentes, ver abajo) |
 | 2. Seleccionar | Quedarse solo con mujeres y con las categorías relacionadas con violencia de pareja | Hecho para las cuatro fuentes |
 | 3. Casos → personas | La policía cuenta carpetas (casos); convertirlas a víctimas | Pendiente |
-| 4. Alinear | Poner todas las fuentes en la misma tabla: estado × año × grupo de edad | Pendiente |
+| 4. Alinear | Poner todas las fuentes en la misma tabla: estado × año × grupo de edad | Prototipo listo para Ciudad de México ([`data/processed/`](data/processed/)) |
 | 5. Comparar | Comparar los registros institucionales con la encuesta para medir la brecha | Pendiente |
 
 ---
@@ -125,8 +125,9 @@ no IMSS, ISSSTE ni servicios privados.
 | [`docs/ipv_crosswalk.csv`](docs/ipv_crosswalk.csv) | Cada regla usada para seleccionar registros, con su motivo y la página del manual oficial donde se verificó |
 | [`docs/decisions.md`](docs/decisions.md) | Registro con fecha de cada decisión del análisis |
 | `data/interim/` | Datos ya seleccionados, una carpeta por fuente |
+| [`data/processed/`](data/processed/) | **Tabla armonizada**: todas las fuentes en una sola tabla por estado, año y grupo de edad (por ahora, Ciudad de México) |
 
-Los archivos de datos se guardan solo en la computadora local (`data/`); en GitHub solo está el manifiesto.
+Los archivos de datos originales se guardan solo en la computadora local; en GitHub están el manifiesto y la tabla armonizada (conteos agregados, sin microdatos).
 
 ---
 
@@ -140,6 +141,7 @@ web están en `config/sources.yaml`. Instalación: `pip install -r requirements.
 python -m src.acquire run --year 2024      # etapa 1: descargar
 python -m src.acquire status --year 2024   # qué hay y qué falta
 python -m src.filter.all --year 2024       # etapa 2: seleccionar
+python -m src.harmonise --years 2024 2025 --state 09   # etapa 4: tabla armonizada (CDMX)
 ```
 
 Para agregar un archivo obtenido a mano (por ejemplo, una respuesta de transparencia):
