@@ -1,94 +1,146 @@
-# Mexico IPV recognition-gap pipeline
+# Brecha de reconocimiento de la violencia de pareja en México
 
-> **Start with [`docs/GUIDE.md`](docs/GUIDE.md): what the project is, what has been done, the key files (such as the manifest) and next steps, in plain language.**
+Este repositorio añade a México al marco comparativo de la **brecha de reconocimiento** de
+Blofield, Danforth et al. La pregunta es: de todas las mujeres que viven violencia de pareja,
+¿cuántas quedan registradas por las instituciones del Estado?
 
-Code for adding Mexico to the IPV recognition-gap framework (Blofield, Danforth et al.).
-The full brief, including goals, sources and open questions, is in **PROJECT_BRIEF.md**.
+Para responderla se comparan dos tipos de datos:
 
-## Setup (once)
+- **Cuántas mujeres viven violencia de pareja**, según la encuesta nacional ENDIREH (INEGI).
+- **Cuántos casos registran las instituciones**: policía y fiscalías (SESNSP), servicios de
+  salud (DGIS) y Centros de Justicia para las Mujeres (CJM).
+
+La población son **mujeres de 15 años y más** (y de 18 y más, porque algunas fuentes solo
+separan menores de adultas). El **año principal es 2024**, el último que cubren todas las fuentes;
+2025 se usa como comprobación para policía y salud.
+
+> Información de referencia: el plan completo del proyecto está en [`PROJECT_BRIEF.md`](PROJECT_BRIEF.md)
+> y una guía detallada con conteos está en [`docs/GUIDE.md`](docs/GUIDE.md) (ambos en inglés).
+
+---
+
+## Etapas del proyecto
+
+| Etapa | Qué significa | Estado |
+|---|---|---|
+| 1. Recopilar | Descargar los archivos originales y registrar de dónde y cuándo se obtuvieron | Hecho (faltan algunas fuentes, ver abajo) |
+| 2. Seleccionar | Quedarse solo con mujeres y con las categorías relacionadas con violencia de pareja | Hecho para las cuatro fuentes |
+| 3. Casos → personas | La policía cuenta carpetas (casos); convertirlas a víctimas | Pendiente |
+| 4. Alinear | Poner todas las fuentes en la misma tabla: estado × año × grupo de edad | Pendiente |
+| 5. Comparar | Comparar los registros institucionales con la encuesta para medir la brecha | Pendiente |
+
+---
+
+## Datos recopilados y datos que faltan
+
+Resumen por fuente. Todos los archivos recopilados están listados, con su dirección web y fecha
+de descarga, en [`data/raw/manifest.csv`](data/raw/manifest.csv).
+
+| Fuente | Recopilado | Falta |
+|---|---|---|
+| Policía y fiscalías (SESNSP) | Carpetas y víctimas por estado, 2015–2025 | Llamadas al 911 por violencia de pareja; datos 2026 (nueva metodología); respuestas de fiscalías |
+| Centros de Justicia para las Mujeres (CJM) | Base de datos INEGI 2025 (datos de 2023 y 2024, 76 centros) | Reporte de resultados (archivo perdido); datos de CONAVIM y EQUIS; refugios y otros centros |
+| Salud (DGIS) | Registro de lesiones y violencia 2024 y su instructivo | Registro 2025; conteos del CNEGSR |
+| Encuesta (ENDIREH) | Microdatos 2021, descriptor de archivos y cuestionario | ENDIREH 2026 (aún no publicada por INEGI) |
+
+### Policía y fiscalías: SESNSP
+
+**Recopilado** (descargado el 16 nov 2026, corte de septiembre 2026):
+- Carpetas de investigación del fuero común por estado y mes, 2015–2025
+  (`Estatal-Delitos-2015-2025_sep2026.zip`)
+- Víctimas del fuero común por estado, mes, sexo y edad (menores / adultas), 2015–2025
+  (`Estatal-Víctimas-2015-2025_sep2026.zip`)
+- Diccionario de datos de la metodología 2015–2025
+
+**Falta:**
+- *Informe de violencia contra las mujeres*, que incluye las llamadas al 911 por **violencia de
+  pareja**. Hay que descargarlo a mano.
+- Datos de **2026 con la nueva metodología (RNID)**, la única que registra sexo y edad de las
+  víctimas de violencia familiar. Hasta noviembre 2026 solo hay enero–septiembre.
+- Datos a nivel municipal (opcional; los usa Hoehn-Velasco et al. 2021).
+- *(Opcional)* Solicitudes de transparencia a las 32 fiscalías estatales para obtener víctimas de
+  violencia familiar por sexo y edad en 2024–2025.
+
+**Limitación importante:** antes de 2026, la violencia familiar no tiene sexo ni edad de la
+víctima, e incluye violencia de otros familiares, no solo de la pareja.
+
+### Centros de Justicia para las Mujeres: CJM
+
+**Recopilado** (16 nov 2026):
+- Base de datos del Censo de CJM, edición 2025 (`BD_CJM_2025.csv`): datos de 2023 y 2024,
+  76 centros en los 32 estados. Guardada a mano desde la página de INEGI.
+- Descriptor de archivos (diccionario de variables)
+- Presentación ejecutiva de resultados
+
+**Falta:**
+- Reporte de resultados (`cjm2025_RR.pdf`): aparece en el manifiesto pero el archivo no está
+  en su carpeta. Hay que volver a descargarlo.
+- Información de **CONAVIM** y **EQUIS Justicia para las Mujeres** para completar huecos.
+- Identificar **refugios y otros centros** de atención que no son CJM.
+- Solicitudes de transparencia a cada CJM pidiendo mujeres atendidas por edad y por relación
+  con el agresor (la base de INEGI tiene estos datos en tablas separadas).
+
+**Revisar:** un centro tiene la clave de estado de Jalisco (14) pero el nombre de estado "MÉXICO".
+
+### Salud: DGIS
+
+**Recopilado** (16 nov 2026):
+- Registro de atención por violencia y/o lesión 2024, microdatos (`Lesiones_2024.zip`)
+- Instructivo de llenado 2024, usado para verificar todos los códigos
+
+**Falta:**
+- Registro de **2025** (para la comprobación; el archivo está disponible pero no descargado).
+  No hay instructivo 2025 publicado; se usaría el de 2024.
+- Conteos de registros del **CNEGSR**, que hay que pedir directamente.
+
+**Limitación importante:** el registro cuenta **atenciones, no mujeres** (una mujer atendida dos
+veces cuenta dos veces) y cubre sobre todo unidades de la Secretaría de Salud e IMSS-Bienestar,
+no IMSS, ISSSTE ni servicios privados.
+
+### Encuesta: ENDIREH
+
+**Recopilado** (16 nov 2026):
+- Microdatos ENDIREH 2021 en CSV (110,127 mujeres entrevistadas)
+- Descriptor de archivos y cuestionario B
+
+**Falta:**
+- **ENDIREH 2026**: en levantamiento; INEGI aún no ha publicado resultados.
+
+**Limitación importante:** la encuesta es de 2021 y los registros institucionales son de 2024.
+
+### Otras tareas pendientes
+
+- **Búsqueda de literatura** (PubMed y Semantic Scholar) con hoja de revisión, para compartir con Merike.
+- **Directorio de CJM y otros centros**, plantilla de solicitud de información y registro de
+  solicitudes enviadas por la Plataforma Nacional de Transparencia.
+
+---
+
+## Dónde verificar la información
+
+| Archivo | Qué contiene |
+|---|---|
+| [`data/raw/manifest.csv`](data/raw/manifest.csv) | **Lista de todos los archivos originales**: fuente, dirección web, fecha de descarga, si se descargó a mano o automáticamente, y una huella digital (SHA-256) que demuestra que el archivo no ha cambiado |
+| [`docs/coverage.csv`](docs/coverage.csv) | Qué puede y qué no puede decirnos cada fuente: sexo, edad, relación con el agresor |
+| [`docs/ipv_crosswalk.csv`](docs/ipv_crosswalk.csv) | Cada regla usada para seleccionar registros, con su motivo y la página del manual oficial donde se verificó |
+| [`docs/decisions.md`](docs/decisions.md) | Registro con fecha de cada decisión del análisis |
+| `data/interim/` | Datos ya seleccionados, una carpeta por fuente |
+
+Los archivos de datos se guardan solo en la computadora local (`data/`); en GitHub solo está el manifiesto.
+
+---
+
+## Pipeline (resumen técnico)
+
+El código está en `src/`: `src/acquire/` descarga y registra los archivos (etapa 1) y
+`src/filter/` selecciona los registros de cada fuente (etapa 2). Las fuentes y sus direcciones
+web están en `config/sources.yaml`. Instalación: `pip install -r requirements.txt`.
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate          
-pip install -r requirements.txt
-python -m pytest -q                # offline tests, should all pass
+python -m src.acquire run --year 2024      # etapa 1: descargar
+python -m src.acquire status --year 2024   # qué hay y qué falta
+python -m src.filter.all --year 2024       # etapa 2: seleccionar
 ```
 
-## Step 1 – Acquire
-
-```bash
-# 1. Check the configured URLs work from your machine (shows HTTP status for each)
-python -m src.acquire check --year 2024
-
-# 2. See what would be downloaded
-python -m src.acquire run --year 2024 --dry-run
-
-# 3. Download
-python -m src.acquire run --year 2025
-python -m src.acquire run --year 2024          # CJM data and fallback year
-
-# 4. See what you have and what's missing
-python -m src.acquire status --year 2024
-```
-
-Every file goes to `data/raw/<source>/<year or edition>/<dataset>/` and gets a row in
-`data/raw/manifest.csv`. Each row records the URL, the link text, the retrieval time and a SHA-256 hash.
-
-**Re-running is safe.** Files already in the manifest are skipped. With `--force`, the file is
-downloaded again. If the content changed, the old version is kept in `data/raw/_superseded/`.
-
-### When a download fails
-
-Government URLs move. If a dataset shows `✗ failed`:
-
-1. List the links on that source's page and find the right file:
-   ```bash
-   python -m src.acquire links sesnsp --grep víctimas
-   ```
-2. Paste the exact URL into the dataset's `urls:` list in `config/sources.yaml` and run again.
-   Google Drive share links, which SESNSP uses, are converted to direct downloads automatically.
-3. Or download the file in your browser and register it (see below).
-
-### Manually obtained files
-
-Use this for transparency-request responses (PNT), CNEGSR counts, and the SESNSP women's report PDF:
-
-```bash
-python -m src.acquire register --source cnegsr --dataset solicitud_registros --year 2025 \
-    --file ~/Downloads/respuesta.xlsx --url "PNT folio 330024..." --notes "received 2026-12-01"
-```
-
-The original file stays where it is; a copy is logged in the manifest.
-
-## Step 2 – Filter
-
-```bash
-python -m src.filter.all --year 2024      # SESNSP, CJM, DGIS for the year + ENDIREH 2021
-python -m src.filter.sesnsp --year 2025   # or one source at a time
-python -m src.filter.endireh --edition 2021   # ~2 min (survey standard errors)
-```
-
-Outputs go to `data/interim/<source>/`. Every inclusion and exclusion rule, with its reason and
-where it was checked, is in `docs/ipv_crosswalk.csv`; what each source can split is in
-`docs/coverage.csv`; analytic choices are in `docs/decisions.md`.
-
-| Source | Output | Population | IPV definition |
-|---|---|---|---|
-| SESNSP | `sesnsp_<year>_states.csv`, `sesnsp_trend_2015_2025.csv` | cases: all; victims: women 18+ | *violencia familiar* carpetas (proxy) + related crimes |
-| CJM | `cjm_<year>_centres.csv`, `cjm_<year>_states.csv` | women 15+/18+ | partner incidents (estimate, see decisions) |
-| DGIS | `dgis_<year>_states.csv` | women 15+/18+ (attentions) | family violence by spouse/partner |
-| ENDIREH | `endireh_2021_estimates.csv` (long, with SE/CI) | women 15+/18+ | VPAR_12M / VPAR_A, help-seeking by institution |
-
-## Layout
-
-```
-config/sources.yaml   every source, URL and link-matching rule (edit this, not the code)
-src/acquire/          step 1 engine + command-line interface
-src/filter/           step 2 filters (one module per source) + all.py
-data/raw/             immutable downloads + manifest.csv (only the manifest is in git)
-docs/GUIDE.md         plain-language guide: status, key files, next steps
-docs/ipv_crosswalk.csv  every inclusion/exclusion rule, with reason
-docs/coverage.csv     what each source can split (sex, age, IPV), and how it was checked
-docs/decisions.md     dated log of analytic decisions
-tests/                offline tests (a local server stands in for the government sites)
-```
+Para agregar un archivo obtenido a mano (por ejemplo, una respuesta de transparencia):
+`python -m src.acquire register --help`.
