@@ -1,6 +1,6 @@
 # Mexico IPV recognition-gap pipeline
 
-> **New here or not technical?** Start with [`docs/GUIDE.md`](docs/GUIDE.md): what the project is, what has been done, the key files (such as the manifest) and next steps, in plain language.
+> **Start with [`docs/GUIDE.md`](docs/GUIDE.md): what the project is, what has been done, the key files (such as the manifest) and next steps, in plain language.**
 
 Code for adding Mexico to the IPV recognition-gap framework (Blofield, Danforth et al.).
 The full brief, including goals, sources and open questions, is in **CLAUDE.md**.
