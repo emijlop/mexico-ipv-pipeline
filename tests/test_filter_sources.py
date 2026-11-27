@@ -109,6 +109,8 @@ def test_dgis_partner_women_15plus():
     assert cdmx["women_15plus_partner_aviso_mp"] == 1
     assert cdmx["women_15plus_partner_fisica"] == 1 and cdmx["women_15plus_partner_sexual"] == 1
     assert jal["women_15plus_partner"] == 0                      # 6 months, not 6 years
+    assert jal["women_under15_partner"] == 1                     # the 6-month-old counts as under 15
+    assert cdmx["women_15_17_partner"] == 1 and cdmx["women_under15_partner"] == 1   # ages 16 and 14
     assert jal["women_15plus_violencia_no_familiar"] == 1
     assert pd.isna(s.loc["01", "records_all"])                   # state with no units stays missing
     assert len(s) == 32

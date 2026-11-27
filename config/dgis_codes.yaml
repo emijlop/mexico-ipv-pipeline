@@ -8,6 +8,7 @@ sexo:                      # SEXO, manual p.23
 cveedad:                   # CVEEDAD = unit of Edad. NOT in the manual; inferred from the data:
   anios: "5"               #   5 -> Edad 1-120 (years); 4 -> 1-11 (months); 3 -> 1-29 (days);
   desconocida: "9"         #   2 -> 1-23 (hours); 9 -> Edad 999 (unknown, manual p.34)
+  menos_de_un_anio: ["2", "3", "4"]   # hours, days, months -> always under 15
 edad_desconocida: "999"
 intencionalidad:           # CodIntencionalidad, manual p.26 / p.39
   violencia_familiar: "2"

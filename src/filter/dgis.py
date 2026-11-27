@@ -70,6 +70,8 @@ def flag(ev: pd.DataFrame, tv: pd.DataFrame, year: int, codes: dict) -> pd.DataF
     f["age15"] = years & (edad >= 15) & ~age_unknown
     f["age18"] = years & (edad >= 18) & ~age_unknown
     f["age_unknown"] = age_unknown
+    f["age_under15"] = ((years & (edad < 15)) | ev["CVEEDAD"].isin(codes["cveedad"]["menos_de_un_anio"])) & ~age_unknown
+    f["age15_17"] = years & (edad >= 15) & (edad < 18) & ~age_unknown
     f["vf"] = ev["CodIntencionalidad"] == codes["intencionalidad"]["violencia_familiar"]
     f["vnf"] = ev["CodIntencionalidad"] == codes["intencionalidad"]["violencia_no_familiar"]
     f["partner"] = f["vf"] & (ev["CodParentescoAgresor"] == codes["parentesco"]["pareja"])
@@ -89,6 +91,10 @@ def to_states(f: pd.DataFrame, codes: dict) -> pd.DataFrame:
         "women_15plus_partner": w["age15"] & w["partner"],
         "women_18plus_partner": w["age18"] & w["partner"],
         "women_age_unknown_partner": w["age_unknown"] & w["partner"],
+        "women_under15_violencia_familiar": w["age_under15"] & w["vf"],
+        "women_15_17_violencia_familiar": w["age15_17"] & w["vf"],
+        "women_under15_partner": w["age_under15"] & w["partner"],
+        "women_15_17_partner": w["age15_17"] & w["partner"],
         "women_15plus_vf_relationship_unknown": w["age15"] & w["rel_unknown"],
         "women_15plus_partner_aviso_mp": w["age15"] & w["partner"] & w["mp"],
         "women_18plus_partner_aviso_mp": w["age18"] & w["partner"] & w["mp"],

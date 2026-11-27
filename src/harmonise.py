@@ -26,7 +26,8 @@ OUT_DIR = common.core.ROOT / "data" / "processed"
 ENDIREH_EDITION = 2021
 LOW_N = 30  # fewer women interviewed than this -> flag (INEGI's precision rule also uses CV > 30%)
 
-AGE = {"15plus": "15+", "18plus": "18+", "all": "todas", "unknown": "edad no registrada"}
+AGE = {"15plus": "15+", "18plus": "18+", "all": "todas", "unknown": "edad no registrada",
+       "minors": "menores (0–17)", "under15": "menores de 15", "15to17": "15–17"}
 
 # (column in the Step 2 output, age group, unit, relationship to aggressor, description)
 SESNSP = [
@@ -39,13 +40,19 @@ SESNSP = [
      "Carpetas por violación (cualquier sexo)"),
     ("women_18plus_feminicidio", "18plus", "víctimas mujeres", "no registrada",
      "Mujeres víctimas de feminicidio"),
+    ("women_minors_feminicidio", "minors", "víctimas mujeres", "no registrada",
+     "Mujeres víctimas de feminicidio"),
     ("women_age_unknown_feminicidio", "unknown", "víctimas mujeres", "no registrada",
      "Mujeres víctimas de feminicidio"),
     ("women_18plus_homicidio_doloso", "18plus", "víctimas mujeres", "no registrada",
      "Mujeres víctimas de homicidio doloso"),
+    ("women_minors_homicidio_doloso", "minors", "víctimas mujeres", "no registrada",
+     "Mujeres víctimas de homicidio doloso"),
     ("women_age_unknown_homicidio_doloso", "unknown", "víctimas mujeres", "no registrada",
      "Mujeres víctimas de homicidio doloso"),
     ("women_18plus_lesiones_dolosas", "18plus", "víctimas mujeres", "no registrada",
+     "Mujeres víctimas de lesiones dolosas"),
+    ("women_minors_lesiones_dolosas", "minors", "víctimas mujeres", "no registrada",
      "Mujeres víctimas de lesiones dolosas"),
     ("women_age_unknown_lesiones_dolosas", "unknown", "víctimas mujeres", "no registrada",
      "Mujeres víctimas de lesiones dolosas"),
@@ -54,6 +61,8 @@ CJM = [
     ("women_total", "all", "mujeres atendidas", "cualquiera", "Mujeres atendidas en CJM"),
     ("women_15plus", "15plus", "mujeres atendidas", "cualquiera", "Mujeres atendidas en CJM"),
     ("women_18plus", "18plus", "mujeres atendidas", "cualquiera", "Mujeres atendidas en CJM"),
+    ("women_under15", "under15", "mujeres atendidas", "cualquiera", "Mujeres atendidas en CJM"),
+    ("women_15_17", "15to17", "mujeres atendidas", "cualquiera", "Mujeres atendidas en CJM"),
     ("women_age_unknown", "unknown", "mujeres atendidas", "cualquiera", "Mujeres atendidas en CJM"),
     ("incidents_total", "all", "incidentes", "cualquiera", "Incidentes de violencia registrados en CJM"),
     ("incidents_partner", "all", "incidentes", "pareja o expareja",
@@ -68,7 +77,13 @@ DGIS = [
      "Atenciones a mujeres por violencia familiar"),
     ("women_18plus_violencia_familiar", "18plus", "atenciones", "familiar (incluye pareja)",
      "Atenciones a mujeres por violencia familiar"),
+    ("women_under15_violencia_familiar", "under15", "atenciones", "familiar (incluye pareja)",
+     "Atenciones a mujeres por violencia familiar"),
+    ("women_15_17_violencia_familiar", "15to17", "atenciones", "familiar (incluye pareja)",
+     "Atenciones a mujeres por violencia familiar"),
     ("women_15plus_partner", "15plus", "atenciones", "pareja", "Atenciones a mujeres por violencia de pareja"),
+    ("women_under15_partner", "under15", "atenciones", "pareja", "Atenciones a mujeres por violencia de pareja"),
+    ("women_15_17_partner", "15to17", "atenciones", "pareja", "Atenciones a mujeres por violencia de pareja"),
     ("women_18plus_partner", "18plus", "atenciones", "pareja", "Atenciones a mujeres por violencia de pareja"),
     ("women_age_unknown_partner", "unknown", "atenciones", "pareja",
      "Atenciones a mujeres por violencia de pareja"),

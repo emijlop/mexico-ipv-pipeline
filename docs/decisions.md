@@ -15,6 +15,7 @@ Newest first. One entry per analytic decision: what, why, alternatives, who.
   8. Solo los indicadores más cercanos a violencia de pareja; abuso sexual, acoso y lesiones (carpetas) quedan en los archivos del paso 2.
 - **Hallazgos CDMX 2024:** en CJM, 29,381 de 49,842 mujeres sin edad y 36,577 de 49,842 incidentes sin relación con el agresor; CDMX reporta 0 carpetas de "violencia de género distinta a la familiar" en 2024 y 2025 (probablemente no usa la categoría); apoyo pedido a CJM (12 entrevistadas) y salud (6) no es utilizable a nivel estatal.
 - **Siguiente:** revisar con la profesora/el profesor y correr para los 32 estados.
+- **Añadido (27 nov):** filas separadas para niñas y adolescentes, contadas directamente de los datos (no por resta): policía "menores (0–17)" (víctimas de feminicidio, homicidio doloso y lesiones dolosas); CJM y salud "menores de 15" y "15–17"; encuesta "15–17" (la ENDIREH no entrevista a menores de 15). Las filas "15+" siguen incluyendo a las adolescentes de 15–17; para mujeres adultas usar "18+". En salud, edades registradas en horas, días o meses cuentan como menores de 15.
 
 ## 2026-11-27 — Step 2 filters for SESNSP, DGIS and ENDIREH
 - **Built:** `src/filter/sesnsp.py`, `dgis.py`, `endireh.py`, plus `all.py` to run every source for one year. All inclusion rules are in `docs/ipv_crosswalk.csv`; DGIS codes in `config/dgis_codes.yaml` are now verified against the 2024 manual.

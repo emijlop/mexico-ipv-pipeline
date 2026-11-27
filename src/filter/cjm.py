@@ -43,6 +43,8 @@ AGE_GROUPS = {  # q5.1.9 group index -> label (verified against the codebook at 
 }
 AGE_15PLUS = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 AGE_18PLUS = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+AGE_UNDER15 = [2, 3, 4, 5]   # 0-4, 5-9, 10-11, 12-14
+AGE_15_17 = [6]
 PARTNER = {2: "Pareja", 3: "Expareja", 4: "Novio", 5: "Novia"}   # q5.1.14 groups
 VIOLENCE_TYPES = {2: "psicologica", 3: "fisica", 4: "sexual", 5: "economica",
                   6: "patrimonial", 7: "interposita", 8: "otra", 9: "no_especificado"}
@@ -65,6 +67,8 @@ def build_spec(year: int, colmap: dict[str, str]) -> dict[str, list[str]]:
         "women_15plus": [f"P5_1_9_{g}_{w}" for g in AGE_15PLUS],
         "women_18plus": [f"P5_1_9_{g}_{w}" for g in AGE_18PLUS],
         "women_age_unknown": [f"P5_1_9_17_{w}"],
+        "women_under15": [f"P5_1_9_{g}_{w}" for g in AGE_UNDER15],
+        "women_15_17": [f"P5_1_9_{g}_{w}" for g in AGE_15_17],
         "incidents_total": [f"P5_1_14_1_{w}"],
         "incidents_partner": [f"P5_1_14_{g}_{w}" for g in PARTNER],
         "incidents_relationship_unknown": [f"P5_1_14_27_{w}"],

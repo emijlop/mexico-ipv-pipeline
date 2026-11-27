@@ -72,7 +72,7 @@ INDICATORS = {
     "ipv12m_recent_health_public": ("recent_health_public", "ipv_12m"),
     "ipv12m_recent_police_or_mp": ("recent_police_or_mp", "ipv_12m"),
 }
-AGE_GROUPS = {"15plus": 15, "18plus": 18}
+AGE_GROUPS = {"15plus": (15, None), "18plus": (18, None), "15to17": (15, 17)}   # (min, max) age
 
 
 def _table(zip_path, table: str, cols: list[str]) -> pd.DataFrame:
@@ -128,14 +128,22 @@ def flags(df: pd.DataFrame) -> pd.DataFrame:
     return f
 
 
-def _design_var(u: np.ndarray, strata: pd.Series, psu: pd.Series) -> float:
+def _design(f: pd.DataFrame) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Integer codes for PSUs and their strata (computed once per frame, then reused)."""
+    if "_psu_code" not in f:
+        f["_psu_code"], psus = pd.factorize(f["psu"])
+        h_of_psu = pd.Series(f["strata"].values).groupby(f["_psu_code"].values).first()
+        f.attrs["h_of_psu"] = pd.factorize(h_of_psu.sort_index().values)[0]
+    h = f.attrs["h_of_psu"]
+    return f["_psu_code"].values, h, np.bincount(h)
+
+
+def _design_var(u: np.ndarray, psu: np.ndarray, h_of_psu: np.ndarray, n_h: np.ndarray) -> float:
     """Variance of a total of linearised values u (with-replacement PSU approximation)."""
-    t = pd.DataFrame({"u": u, "h": strata.values, "j": psu.values}).groupby(["h", "j"])["u"].sum()
-    g = t.groupby(level="h")
-    n_h = g.size()
-    dev2 = (t - g.transform("mean")) ** 2
-    ss = dev2.groupby(level="h").sum()
-    keep = n_h > 1                             # singleton strata contribute nothing
+    t = np.bincount(psu, weights=u, minlength=len(h_of_psu))          # PSU totals
+    mean_h = np.bincount(h_of_psu, weights=t, minlength=len(n_h)) / n_h
+    ss = np.bincount(h_of_psu, weights=(t - mean_h[h_of_psu]) ** 2, minlength=len(n_h))
+    keep = n_h > 1                                                      # singleton strata add nothing
     return float((n_h[keep] / (n_h[keep] - 1) * ss[keep]).sum())
 
 
@@ -149,8 +157,9 @@ def estimate(f: pd.DataFrame, domain: pd.Series, num: str, den: str) -> dict:
         return {"estimate": np.nan, "se": np.nan, "women": Y, "women_se": np.nan,
                 "n_num": 0, "n_den": n_den}
     R = Y / X
-    se_r = np.sqrt(_design_var(w * d * (y - R * x) / X, f["strata"], f["psu"]))
-    se_y = np.sqrt(_design_var(w * d * y, f["strata"], f["psu"]))
+    design = _design(f)
+    se_r = np.sqrt(_design_var(w * d * (y - R * x) / X, *design))
+    se_y = np.sqrt(_design_var(w * d * y, *design))
     return {"estimate": R, "se": se_r, "women": Y, "women_se": se_y,
             "n_num": int((d * y).sum()), "n_den": n_den}
 
@@ -160,8 +169,10 @@ def build(f: pd.DataFrame) -> pd.DataFrame:
     areas = [("00", "Nacional", pd.Series(True, index=f.index))]
     areas += [(k, v, f["cve_ent"] == k) for k, v in common.STATES.items()]
     for cve, nom, in_area in areas:
-        for ag, min_age in AGE_GROUPS.items():
-            domain = in_area & (f["edad"] >= min_age)
+        for ag, (lo, hi) in AGE_GROUPS.items():
+            domain = in_area & (f["edad"] >= lo)
+            if hi is not None:
+                domain &= f["edad"] <= hi
             pop = estimate(f, domain, "all", "all")
             for ind, (num, den) in INDICATORS.items():
                 r = estimate(f, domain, num, den)
