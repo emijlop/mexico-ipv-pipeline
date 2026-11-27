@@ -2,6 +2,15 @@
 
 Newest first. One entry per analytic decision: what, why, alternatives, who.
 
+## 2026-11-27 — Step 2 filters for SESNSP, DGIS and ENDIREH
+- **Built:** `src/filter/sesnsp.py`, `dgis.py`, `endireh.py`, plus `all.py` to run every source for one year. All inclusion rules are in `docs/ipv_crosswalk.csv`; DGIS codes in `config/dgis_codes.yaml` are now verified against the 2024 manual.
+- **SESNSP:** keeps *violencia familiar* carpetas as the core police proxy (all ages and sexes; no split exists before 2026), with related crimes (gender violence other than family violence, femicide, rape, sexual abuse, harassment, intentional injuries) next to it. Women 18+ victims only for femicide, intentional homicide and intentional injuries. Crimes → victims is left for step 3.
+- **DGIS:** women 15+/18+, intentionality = family violence (2) and aggressor = spouse/partner (3). Counts are attentions, not women (no person ID). State = health unit's state (CLUES prefix); agrees with CodEstado for 95% of records. Family-violence records with no relationship kept as a separate lower-bound flag. In 2024, 81% of family-violence records of women 15+ with a known relationship were by a partner: a candidate for the police IPV adjustment (open question, CLAUDE.md §8).
+- **ENDIREH:** prevalence of partner violence (VPAR_12M = 1, VPAR_A = 1; coding confirmed 1 = yes) and help-seeking by institution (CJM, public health, police, Ministerio Público), women 15+ and 18+, national and by state, with survey-weighted SEs (Taylor linearisation; EST_DIS strata, UPM_DIS PSUs). Checks: 20.7% (last 12 months) and 39.9% (relationship) of ever-partnered women, matching INEGI's published figures.
+- **Choices made (review):** (1) ENDIREH 'no especificado' (9) counts as 'no' and stays in the denominator, as INEGI does. (2) Help-seeking refers to the whole relationship; 'recent' versions use last request/complaint in 2020–2021 as a reference-period proxy. (3) Estimates with CV > 30% or fewer than 30 cases are flagged `low_precision`; 44% of state-level estimates are, mostly help-seeking by institution.
+- **Not done:** RNID (2026) police data; DGIS 2025 (not downloaded yet); 911 *violencia de pareja* calls (manual download).
+- **By:** Elena Mijares (built with Claude)
+
 ## 2026-11-16 — CJM: how to count women attended for IPV (OPEN)
 - **Constraint (from the FD codebook):** women by age (q5.1.9) and incidents by relationship to the aggressor (q5.1.14) are separate tables; there is no women x age x relationship cross-tab. Relationship counts are incidents (one woman can have several), not women.
 - **Implemented:** the step outputs all ingredients plus one estimate, `est_women_15plus_partner = women_15plus x (partner incidents / all incidents)`, where partner = pareja + expareja + novio + novia.

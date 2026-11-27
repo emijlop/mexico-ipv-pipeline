@@ -1,0 +1,29 @@
+source,variable,code_or_value,label,role,output_column,reason,verified_against,checked_on
+sesnsp,Tipo de delito,Violencia familiar,Violencia familiar,core_proxy,carpetas_violencia_familiar,"Closest police category to IPV; also covers other relatives, all ages and sexes, so an upper bound for partner violence against women",Estatal-Delitos-2015-2025_sep2026.csv categories,2026-11-27
+sesnsp,Tipo de delito,Violencia de género en todas sus modalidades distinta a la violencia familiar,Gender violence other than family violence,related,carpetas_violencia_genero_no_familiar,"Can include partner violence outside the household (e.g. ex-partners, dating)",Estatal-Delitos-2015-2025_sep2026.csv categories,2026-11-27
+sesnsp,Tipo de delito,Feminicidio,Femicide,related,carpetas_feminicidio; women_*_feminicidio,"Most femicides are by partners or ex-partners, but the relationship is not recorded",Estatal-Delitos / Estatal-Víctimas 2015-2025,2026-11-27
+sesnsp,Tipo de delito,Violación simple; Violación equiparada,Rape,related,carpetas_violacion,"Sexual IPV is part of IPV; relationship and sex not recorded in carpetas",Estatal-Delitos-2015-2025_sep2026.csv categories,2026-11-27
+sesnsp,Tipo de delito,Abuso sexual,Sexual abuse,related,carpetas_abuso_sexual,Context only,Estatal-Delitos-2015-2025_sep2026.csv categories,2026-11-27
+sesnsp,Tipo de delito,Acoso sexual; Hostigamiento sexual,Sexual harassment,related,carpetas_acoso_hostigamiento_sexual,Context only (mostly non-partner),Estatal-Delitos-2015-2025_sep2026.csv categories,2026-11-27
+sesnsp,Subtipo de delito,Lesiones dolosas,Intentional injuries,related,carpetas_lesiones_dolosas; women_*_lesiones_dolosas,"Partner assaults may be filed as lesiones instead of violencia familiar; victims file gives women 18+",Estatal-Delitos / Estatal-Víctimas 2015-2025,2026-11-27
+sesnsp,Subtipo de delito,Homicidio doloso,Intentional homicide,related,women_*_homicidio_doloso,"Women killed by partners may be classified as homicide, not femicide",Estatal-Víctimas-2015-2025_sep2026.csv,2026-11-27
+sesnsp,Sexo / Rango de edad,Mujer; Adultos (18 y más),Women 18+,population,women_18plus_*,"Only minors/adults split exists, so 15+ is impossible; 'No especificado' and 'No identificado' kept as women_age_unknown_*",Estatal-Víctimas-2015-2025_sep2026.csv,2026-11-27
+sesnsp,Subtipo de delito,Lesiones culposas; Homicidio culposo,Negligent injury / homicide,exclude,,Not intentional violence,,2026-11-27
+dgis,SEXO,2,Mujer,population,women_*,,Instructivo_Lesiones_2024.pdf p.23,2026-11-27
+dgis,CVEEDAD + Edad,5 and Edad>=15 (>=18),Age in years,population,women_15plus_* / women_18plus_*,"CVEEDAD is the unit of Edad (5=years, 4=months, 3=days, 2=hours, 9=unknown); inferred from the data because the manual does not list it",Lesiones_2024.zip D_Evento.txt value ranges,2026-11-27
+dgis,CodIntencionalidad,2,Violencia familiar,core,women_*_violencia_familiar,"Partner violence is recorded under family violence (manual: family violence requires a relative or partner as aggressor)",Instructivo_Lesiones_2024.pdf p.26 and p.39,2026-11-27
+dgis,CodParentescoAgresor,3,Cónyuge/Pareja/Novia(o),core,women_*_partner,"IPV-specific: aggressor is spouse, partner or boyfriend/girlfriend",Instructivo_Lesiones_2024.pdf p.28,2026-11-27
+dgis,CodParentescoAgresor,0; -1,No especificado / blank,flag,women_15plus_vf_relationship_unknown,"Family-violence records with no relationship: partner count is a lower bound",Instructivo_Lesiones_2024.pdf p.28,2026-11-27
+dgis,CodIntencionalidad,3,Violencia no familiar,exclude,women_15plus_violencia_no_familiar,"Aggressor known without kinship or stranger; ex-partners should be coded as 3 'pareja' under family violence, but some may land here",Instructivo_Lesiones_2024.pdf p.28,2026-11-27
+dgis,CodMP,1,Se dio aviso al Ministerio Público,link,women_*_partner_aviso_mp,Health-to-justice referral; links the health and police sectors,Instructivo_Lesiones_2024.pdf p.31,2026-11-27
+dgis,D_TipoViolencia.CodTipoViolencia,6; 7; 8; 9,Física; sexual; psicológica; económica/patrimonial,detail,women_15plus_partner_<type>,Several types per record allowed,Instructivo_Lesiones_2024.pdf p.28,2026-11-27
+endireh,VPAR_12M,1,Violence by current/last partner in last 12 months,core,ipv_12m,"1=yes, 2=no, 9=not specified (kept in denominator); blank = never partnered. Reproduces INEGI's 20.7% of ever-partnered women",TB_VD catalogue VPAR_12M.csv,2026-11-27
+endireh,VPAR_A,1,Violence over current/last relationship,core,ipv_life,"Filter for the help-seeking module",TB_VD catalogue VPAR_A.csv,2026-11-27
+endireh,POBP,1,Woman with partner or ex-partner,population,ever_partnered,INEGI's denominator for partner-violence prevalence,TB_VD catalogue POBP.csv,2026-11-27
+endireh,EDAD (TSDem),>=15 (>=18),Age,population,age_group,Joined on ID_PER (all 110127 women match),TSDem,2026-11-27
+endireh,P14_7_1,1,Asked an institution for support,help_seeking,sought_institution,Asked of women with VPAR_A=1; refers to the whole relationship,TB_SEC_XIV catalogue,2026-11-27
+endireh,P14_7_2,1,Filed complaint with an authority,help_seeking,complaint_authority,,TB_SEC_XIV catalogue,2026-11-27
+endireh,P14_8_5,1,Asked a Centro de Justicia para las Mujeres,help_seeking_cjm,sought_cjm,Survey counterpart of the CJM administrative counts,TB_SEC_XIV catalogue,2026-11-27
+endireh,P14_8_7,1,"Asked a public clinic, health centre or hospital",help_seeking_health,sought_health_public,Survey counterpart of DGIS (public units),TB_SEC_XIV catalogue,2026-11-27
+endireh,P14_14_1; P14_14_4,1,Complaint to police / Ministerio Público,help_seeking_police,complaint_police; complaint_mp,Survey counterpart of SESNSP carpetas,TB_SEC_XIV_2 catalogue,2026-11-27
+endireh,P14_10_5; P14_10_7; P14_15_1; P14_15_4,2020 or 2021,Year of last request / complaint,recent,recent_*,"Proxy for 'within the reference period'; 8888=does not remember and 9999=not specified count as not recent",TB_SEC_XIV / XIV_2 catalogues,2026-11-27

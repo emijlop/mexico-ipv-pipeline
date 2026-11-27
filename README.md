@@ -58,12 +58,33 @@ python -m src.acquire register --source cnegsr --dataset solicitud_registros --y
 
 The original file stays where it is; a copy is logged in the manifest.
 
+## Step 2 – Filter
+
+```bash
+python -m src.filter.all --year 2024      # SESNSP, CJM, DGIS for the year + ENDIREH 2021
+python -m src.filter.sesnsp --year 2025   # or one source at a time
+python -m src.filter.endireh --edition 2021   # ~2 min (survey standard errors)
+```
+
+Outputs go to `data/interim/<source>/`. Every inclusion and exclusion rule, with its reason and
+where it was checked, is in `docs/ipv_crosswalk.csv`; what each source can split is in
+`docs/coverage.csv`; analytic choices are in `docs/decisions.md`.
+
+| Source | Output | Population | IPV definition |
+|---|---|---|---|
+| SESNSP | `sesnsp_<year>_states.csv`, `sesnsp_trend_2015_2025.csv` | cases: all; victims: women 18+ | *violencia familiar* carpetas (proxy) + related crimes |
+| CJM | `cjm_<year>_centres.csv`, `cjm_<year>_states.csv` | women 15+/18+ | partner incidents (estimate, see decisions) |
+| DGIS | `dgis_<year>_states.csv` | women 15+/18+ (attentions) | family violence by spouse/partner |
+| ENDIREH | `endireh_2021_estimates.csv` (long, with SE/CI) | women 15+/18+ | VPAR_12M / VPAR_A, help-seeking by institution |
+
 ## Layout
 
 ```
 config/sources.yaml   every source, URL and link-matching rule (edit this, not the code)
 src/acquire/          step 1 engine + command-line interface
+src/filter/           step 2 filters (one module per source) + all.py
 data/raw/             immutable downloads + manifest.csv (only the manifest is in git)
+docs/ipv_crosswalk.csv  every inclusion/exclusion rule, with reason
 docs/coverage.csv     what each source can split (sex, age, IPV), and how it was checked
 docs/decisions.md     dated log of analytic decisions
 tests/                offline tests (a local server stands in for the government sites)

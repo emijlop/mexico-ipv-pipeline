@@ -1,6 +1,6 @@
 # Mexico IPV Recognition-Gap: Administrative Data Collection Pipeline
 
-**Owner:** Elena Mijares · **Collaborator:** Merike · **Protocol version:** 15 Oct 2026 · **Last updated:** 16 Nov 2026 (step 1 built; core year 2024)
+**Owner:** Elena Mijares · **Collaborator:** Merike · **Protocol version:** 15 Oct 2026 · **Last updated:** 27 Nov 2026 (steps 1–2 built; core year 2024)
 
 ## 1. What this project is
 
@@ -65,7 +65,7 @@ Key prior uses: Hoehn-Velasco et al. 2021 (SESNSP); Frías & Agoff 2015 and Lóp
 ## 5. Pipeline stages
 
 1. **Acquire** ✅ *built*. One engine reads `config/sources.yaml` and downloads every source, for example `python -m src.acquire run --year 2025`. Files are saved unchanged to `data/raw/<source>/<year or edition>/<dataset>/` and logged in `data/raw/manifest.csv` (URL, link text, retrieval time, SHA-256, methodology). Manually obtained files are added with `python -m src.acquire register`. See README.md.
-2. **Filter** 🔨 *in progress*. Keep women (15+ and 18+ flags), the reference year, and IPV-attributable categories. Every inclusion or exclusion has a stated reason. **CJM done** (`python -m src.filter.cjm --year 2024`; column map verified against the FD codebook in `config/cjm_2025_columns.csv`). DGIS waits for the coding manual; SESNSP and ENDIREH next.
+2. **Filter** 🔨 *in progress*. Keep women (15+ and 18+ flags), the reference year, and IPV-attributable categories. Every inclusion or exclusion has a stated reason. ✅ *Built for all four sources* (27 Nov 2026): `python -m src.filter.all --year 2024`. CJM (column map verified against the FD codebook), SESNSP (*violencia familiar* cases + related crimes, women 18+ victims, 2015–2025 trend), DGIS (women 15+/18+ treated for partner violence; codes in `config/dgis_codes.yaml` verified against the 2024 manual) and ENDIREH (weighted partner-violence prevalence and help-seeking by institution, with SEs). Rules in `docs/ipv_crosswalk.csv`. Still missing: RNID 2026, DGIS 2025, 911 calls.
 3. **Crimes → victims.** Convert SESNSP carpetas to victims and keep both columns (`*_unadjusted`, `*_victims`).
 4. **Harmonise.** Aggregate to state × year × age group and log what each source covers in `docs/coverage.csv`.
 5. **Compute the recognition gap.** For each sector and state, compare institutional counts of adult women with the ENDIREH estimates of affected women and of women who sought help. Use survey weights and report confidence intervals.
