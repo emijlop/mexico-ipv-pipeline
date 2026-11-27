@@ -1,5 +1,7 @@
 # Mexico IPV recognition-gap pipeline
 
+> **New here or not technical?** Start with [`docs/GUIDE.md`](docs/GUIDE.md): what the project is, what has been done, the key files (such as the manifest) and next steps, in plain language.
+
 Code for adding Mexico to the IPV recognition-gap framework (Blofield, Danforth et al.).
 The full brief, including goals, sources and open questions, is in **CLAUDE.md**.
 
@@ -84,6 +86,7 @@ config/sources.yaml   every source, URL and link-matching rule (edit this, not t
 src/acquire/          step 1 engine + command-line interface
 src/filter/           step 2 filters (one module per source) + all.py
 data/raw/             immutable downloads + manifest.csv (only the manifest is in git)
+docs/GUIDE.md         plain-language guide: status, key files, next steps
 docs/ipv_crosswalk.csv  every inclusion/exclusion rule, with reason
 docs/coverage.csv     what each source can split (sex, age, IPV), and how it was checked
 docs/decisions.md     dated log of analytic decisions
