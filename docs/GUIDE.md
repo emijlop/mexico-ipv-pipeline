@@ -4,7 +4,7 @@
 
 This guide explains, without code, what this project is, what has been done, where to find
 things in this folder, and what comes next. If you only read one file, read this one.
-The technical how-to is in [`README.md`](../README.md); the full brief is in [`CLAUDE.md`](../CLAUDE.md).
+The technical how-to is in [`README.md`](../README.md); the full brief is in [`PROJECT_BRIEF.md`](../PROJECT_BRIEF.md).
 
 ---
 

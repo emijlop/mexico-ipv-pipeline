@@ -96,7 +96,7 @@ src/
   analysis/            # victim conversion, gap indicators
 lit_review/            # pubmed.py, semantic_scholar.py, screening.csv
 contacts/              # directory, templates, request tracker
-docs/                  # ipv_crosswalk.csv, coverage.csv, codebook.md, decisions.md
+docs/                  # GUIDE.md (plain-language status), ipv_crosswalk.csv, coverage.csv, codebook.md, decisions.md
 ```
 
 - Python 3.11+. Every step is idempotent (it skips work already done unless `--force` is passed) and is parameterised by year.
@@ -104,6 +104,7 @@ docs/                  # ipv_crosswalk.csv, coverage.csv, codebook.md, decisions
 - Keep `python -m pytest -q` passing. The tests are offline and use a local server in place of the government sites.
 - Variable names stay in their original Spanish, with English labels in `docs/codebook.md`.
 - Every analytic decision gets a dated entry in `docs/decisions.md`.
+- Keep `docs/GUIDE.md` (for non-technical readers) up to date when a step is finished: raw counts only, no derived percentages except those the source itself publishes.
 - Don't hard-code numbers taken from reports. Derive them from raw files or cite them in the manifest.
 - `data/` is git-ignored except for manifests. Microdata is not committed.
 
